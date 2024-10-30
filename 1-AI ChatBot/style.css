@@ -1,0 +1,113 @@
+/* Imprting Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "inter", sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgb(185, 96, 185), rgb(206, 181, 206));
+}
+
+.chatbot-popup {
+  width: 448px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px 0 black;
+  background-color: rgb(255, 255, 255);
+  overflow: hidden;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  background-color: blueviolet;
+  align-items: center;
+}
+
+.material-symbols-rounded {
+  margin-right: 6px;
+}
+
+/* Body chat */
+.chat-body {
+  min-height: 558px;
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.message {
+  display: flex;
+  padding: 4px;
+  width: 100%;
+}
+
+.message.bot-message .message-text {
+  background-color: rgb(224, 8, 224);
+}
+
+.message.user-message {
+  display: flex;
+  justify-content: right;
+  text-align: right;
+}
+
+.message .message-text {
+  background-color: darkorchid;
+  width: auto;
+  padding: 6px 8px;
+  margin-bottom: 4px;
+  border-radius: 10px;
+}
+
+/* Enter pesan */
+.chat-footer {
+  display: flex;
+  width: 100%;
+}
+
+.chat-form {
+  display: flex;
+  width: 100%;
+  margin: 16px;
+  min-height: 36px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.message-input {
+  width: 100%;
+  font-size: 1.4em;
+  outline: none;
+  padding: 10px 10px 0 10px;
+  border: none;
+}
+
+.message-input::placeholder {
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+  line-height: 30px;
+}
+
+.chat-control {
+  display: flex;
+  float: right;
+}
+
+.chat-control .material-symbols-rounded {
+  font-size: 28px;
+}
