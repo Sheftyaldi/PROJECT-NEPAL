@@ -21,7 +21,6 @@ body {
   border-radius: 20px;
   box-shadow: 0 0 10px 0 black;
   background-color: rgb(255, 255, 255);
-  overflow: hidden;
 }
 
 .chat-header {
@@ -38,12 +37,14 @@ body {
 
 /* Body chat */
 .chat-body {
-  min-height: 558px;
+  min-height: 458px;
   display: flex;
   flex-direction: column;
   padding: 6px;
   font-size: 1.2em;
   font-weight: 600;
+  scrollbar-width: thin;
+  scrollbar-color: #ccccf5 transparent;
 }
 
 .message {
@@ -53,7 +54,7 @@ body {
 }
 
 .message.bot-message .message-text {
-  background-color: rgb(224, 8, 224);
+  background-color: rgb(209, 203, 209);
 }
 
 .message.user-message {
@@ -68,6 +69,51 @@ body {
   padding: 6px 8px;
   margin-bottom: 4px;
   border-radius: 10px;
+}
+
+.message .bot-message .thinking {
+  background-color: rgb(161, 20, 161);
+}
+
+.thinking-indikator {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 20px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: cornflowerblue;
+  border-radius: 10px;
+  opacity: 0;
+  animation: dot-blink 1.2s infinite ease-in-out;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+.dot:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.dot:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes dot-blink {
+  0%,
+  80%,
+  100% {
+    opacity: 0;
+    transform: translateY(1px);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-1px);
+  }
 }
 
 /* Enter pesan */
@@ -94,6 +140,7 @@ body {
   outline: none;
   padding: 10px 10px 0 10px;
   border: none;
+  scrollbar-width: none;
 }
 
 .message-input::placeholder {
