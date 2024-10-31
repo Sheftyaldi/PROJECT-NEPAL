@@ -162,3 +162,11 @@ body {
 .chat-control .material-symbols-rounded {
   font-size: 28px;
 }
+
+
+/* Responsif */
+@media screen and (max-width: 400px) {
+  .chatbot-popup {
+    width: 90%;
+  }
+}
