@@ -17,7 +17,8 @@ body {
 }
 
 .chatbot-popup {
-  width: 448px;
+  width: 400px;
+
   border-radius: 20px;
   box-shadow: 0 0 10px 0 black;
   background-color: rgb(255, 255, 255);
@@ -37,14 +38,17 @@ body {
 
 /* Body chat */
 .chat-body {
-  min-height: 458px;
+  max-height: 448px;
+  min-height: 448px;
   display: flex;
   flex-direction: column;
   padding: 6px;
   font-size: 1.2em;
   font-weight: 600;
+  overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #ccccf5 transparent;
+  scroll-behavior: smooth;
 }
 
 .message {
