@@ -9,7 +9,6 @@
 }
 
 body {
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,10 +17,11 @@ body {
 
 .chatbot-popup {
   width: 400px;
-
+  height: 100vh;
   border-radius: 20px;
   box-shadow: 0 0 10px 0 black;
   background-color: rgb(255, 255, 255);
+  position: relative;
 }
 
 .chat-header {
@@ -38,8 +38,8 @@ body {
 
 /* Body chat */
 .chat-body {
-  max-height: 448px;
-  min-height: 448px;
+  max-height: 420px;
+  min-height: 420px;
   display: flex;
   flex-direction: column;
   padding: 6px;
@@ -124,6 +124,8 @@ body {
 .chat-footer {
   display: flex;
   width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 
 .chat-form {
@@ -162,7 +164,6 @@ body {
 .chat-control .material-symbols-rounded {
   font-size: 28px;
 }
-
 
 /* Responsif */
 @media screen and (max-width: 400px) {
