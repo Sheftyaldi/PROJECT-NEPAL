@@ -38,8 +38,8 @@ body {
 
 /* Body chat */
 .chat-body {
-  max-height: 420px;
-  min-height: 420px;
+  max-height: 80vh;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   padding: 6px;
