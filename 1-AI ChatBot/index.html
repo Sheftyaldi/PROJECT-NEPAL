@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <button class="chatbot-toggler">
+      <span class="material-symbols-rounded"> mode_comment </span>
+      <span class="material-symbols-rounded"> close</span>
+    </button>
+
     <div class="chatbot-popup">
       <!-- Chatbot Header -->
       <div class="chat-header">
@@ -38,12 +43,31 @@
         <form action="" class="chat-form">
           <textarea placeholder="Message..." class="message-input"></textarea>
           <div class="chat-control">
-            <button type="button" class="material-symbols-rounded">
+            <button
+              type="button"
+              id="emoji-picker"
+              class="material-symbols-rounded"
+            >
               sentiment_satisfied
             </button>
-            <button type="button" class="material-symbols-rounded">
-              attach_file
-            </button>
+            <div class="file-upload-wrapper">
+              <input type="file" accept="image/*" id="file-input" hidden />
+              <img src="#" />
+              <button
+                type="button"
+                id="file-upload"
+                class="material-symbols-rounded"
+              >
+                attach_file
+              </button>
+              <button
+                type="button"
+                id="file-cancel"
+                class="material-symbols-rounded"
+              >
+                close
+              </button>
+            </div>
             <button type="submit" id="enter" class="material-symbols-rounded">
               arrow_upward
             </button>
@@ -51,6 +75,9 @@
         </form>
       </div>
     </div>
+
+    <!-- Link penguhugung emoji -->
+    <script src="https://cdn.jsdelivr.net/npm/emoji-mart@latest/dist/browser.js"></script>
 
     <script src="script.js"></script>
   </body>

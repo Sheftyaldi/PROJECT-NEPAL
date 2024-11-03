@@ -9,25 +9,70 @@
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  min-height: 100vh;
   background: linear-gradient(rgb(185, 96, 185), rgb(206, 181, 206));
 }
 
+.chatbot-toggler {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  right: 0;
+  bottom: 8px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: blueviolet;
+  transition: all 0.2s ease;
+}
+
+body.show-chatbot .chatbot-toggler {
+  transform: rotate(90deg);
+}
+
+.chatbot-toggler span {
+  position: absolute;
+  color: #ffff;
+}
+
+body.show-chatbot .chatbot-toggler span:first-child,
+.chatbot-toggler span:last-child {
+  opacity: 0;
+}
+
+body.show-chatbot .chatbot-toggler span:last-child {
+  opacity: 1;
+}
+
 .chatbot-popup {
-  width: 400px;
-  height: 100vh;
+  position: fixed;
+  right: 35px;
+  bottom: 60px;
+  width: 420px;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.2);
+  transform-origin: bottom right;
+  pointer-events: none;
   border-radius: 20px;
   box-shadow: 0 0 10px 0 black;
   background-color: rgb(255, 255, 255);
-  position: relative;
+  transition: all 0.1s ease;
+}
+
+body.show-chatbot .chatbot-popup {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
 }
 
 .chat-header {
   display: flex;
   justify-content: space-between;
-  padding: 15px 20px;
+  padding: 8px;
   background-color: blueviolet;
   align-items: center;
 }
@@ -59,20 +104,32 @@ body {
 
 .message.bot-message .message-text {
   background-color: rgb(209, 203, 209);
+  border-radius: 13px 13px 13px 3px;
+}
+
+.message.user-message .message-text {
+  border-radius: 6px 13px 3px 13px;
 }
 
 .message.user-message {
   display: flex;
-  justify-content: right;
-  text-align: right;
+  border-radius: 13px 3px 13px 13px;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.message.user-message .attachment {
+  width: 50%;
+  margin-top: -4px;
+  border-radius: 13px 3px 13px 13px;
 }
 
 .message .message-text {
   background-color: darkorchid;
   width: auto;
+  height: auto;
   padding: 6px 8px;
   margin-bottom: 4px;
-  border-radius: 10px;
 }
 
 .message .bot-message .thinking {
@@ -125,19 +182,55 @@ body {
   display: flex;
   width: 100%;
   position: absolute;
+  background-color: #ffffff;
   bottom: 0;
+  overlay: hidden;
+  border-radius: 0 0 8px 8px;
 }
 
 .chat-form {
   display: flex;
   width: 100%;
   margin: 16px;
-  min-height: 36px;
+  min-height: 30px;
   border-radius: 10px;
   overflow: hidden;
-  position: relative;
+  /* position: relative; */
   align-items: center;
   border: 1px solid black;
+}
+
+.chat-form .file-upload-wrapper {
+  width: 36px;
+  height: 30px;
+  position: relative;
+}
+
+.chat-form .file-upload-wrapper :where(img, button) {
+  position: absolute;
+}
+
+.chat-form .file-upload-wrapper img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.chat-form .file-upload-wrapper #file-cancel {
+  color: #ff0000;
+  background-color: #ffff;
+}
+
+.chat-form .file-upload-wrapper :where(img, #file-cancel),
+.chat-form .file-upload-wrapper.file-uploaded #file-upload {
+  display: none;
+}
+
+.chat-form .file-upload-wrapper.file-uploaded img,
+.chat-form .file-upload-wrapper.file-uploaded:hover #file-cancel {
+  display: block;
 }
 
 .message-input {
@@ -163,6 +256,21 @@ body {
 
 .chat-control .material-symbols-rounded {
   font-size: 28px;
+}
+
+em-emoji-picker {
+  position: absolute;
+  left: 50%;
+  top: -337px;
+  width: 100%;
+  max-width: 350px;
+  max-height: 330px;
+  visibility: hidden;
+  transform: translateX(-50%);
+}
+
+body.show-emoji-picker em-emoji-picker {
+  visibility: visible;
 }
 
 /* Responsif */
