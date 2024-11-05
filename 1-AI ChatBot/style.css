@@ -104,7 +104,7 @@ body.show-chatbot .chatbot-popup {
 
 .message.bot-message .message-text {
   background-color: rgb(209, 203, 209);
-  padding: 0 8px;
+  padding: 0 8px 14px;
   border-radius: 13px 13px 13px 3px;
 }
 
@@ -183,7 +183,7 @@ body.show-chatbot .chatbot-popup {
   display: flex;
   width: 100%;
   position: absolute;
-  background-color: #ffffff;
+  background-color: transparent;
   bottom: 0;
   border-radius: 0 0 8px 8px;
 }
@@ -191,13 +191,14 @@ body.show-chatbot .chatbot-popup {
 .chat-form {
   display: flex;
   width: 100%;
-  margin: 16px;
+  margin: 8px;
   min-height: 30px;
   border-radius: 10px;
   overflow: hidden;
   /* position: relative; */
   align-items: center;
   border: 1px solid black;
+  background-color: #ffff;
 }
 
 .chat-form .file-upload-wrapper {
