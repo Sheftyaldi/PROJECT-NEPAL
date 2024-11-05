@@ -5,6 +5,7 @@ const fileInput = document.querySelector("#file-input");
 const fileUploadWrapper = document.querySelector(".file-upload-wrapper");
 const fileCancelButton = document.querySelector("#file-cancel");
 const chatBotToggler = document.querySelector(".chatbot-toggler");
+const closeChatbot = document.querySelector("#close-chatbot");
 
 // Mengasilkan response bot terhadap penggunaan API
 const generateBotResponse = async (inComingMessageDiv) => {
@@ -62,6 +63,8 @@ const userData = {
   },
 };
 
+const initialInputHeight = messageInput.scrollHeight;
+
 // Membuat element pesan yang dynamic dan mengembalikan nilainya
 const createMessage = (content, ...classes) => {
   const div = document.createElement("div");
@@ -76,6 +79,7 @@ const handleOutGoingMessage = (e) => {
   userData.message = messageInput.value.trim();
   messageInput.value = "";
   fileUploadWrapper.classList.remove("file-uploaded");
+  messageInput.dispatchEvent(new Event("input"));
 
   // Membuat tampilan pesan user
   const messageContent = `<div class="message-text">${userData.message}</div>
@@ -118,16 +122,27 @@ const handleOutGoingMessage = (e) => {
 // Untuk dapat isi pesan saat di enter
 messageInput.addEventListener("keydown", (e) => {
   const userMessage = e.target.value.trim();
-  if (e.key === "Enter" && userMessage) {
+  if (
+    e.key === "Enter" &&
+    userMessage &&
+    !e.shiftKey &&
+    window.innerWidth > 768
+  ) {
     handleOutGoingMessage(e);
   }
+});
+
+messageInput.addEventListener("input", () => {
+  messageInput.style.height = `${initialInputHeight}px`;
+  messageInput.style.height = `${messageInput.scrollHeight}px`;
+  document.querySelector(".chat-form").style.borderRadius =
+    messageInput.scrollHeight > initialInputHeight ? "15px" : "32px";
 });
 
 // Menangani pemilihan file dan tampilan sementara file
 fileInput.addEventListener("change", () => {
   const file = fileInput.files[0];
   if (!file) return;
-
   const reader = new FileReader();
   reader.onload = (e) => {
     fileUploadWrapper.querySelector("img").src = e.target.result;
@@ -178,4 +193,7 @@ document
   .addEventListener("click", () => fileInput.click());
 chatBotToggler.addEventListener("click", () =>
   document.body.classList.toggle("show-chatbot")
+);
+closeChatbot.addEventListener("click", () =>
+  document.body.classList.remove("show-chatbot")
 );
