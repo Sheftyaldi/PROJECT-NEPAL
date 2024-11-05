@@ -98,12 +98,13 @@ body.show-chatbot .chatbot-popup {
 
 .message {
   display: flex;
-  padding: 4px;
+  padding: 20px 0;
   width: 100%;
 }
 
 .message.bot-message .message-text {
   background-color: rgb(209, 203, 209);
+  padding: 0 8px;
   border-radius: 13px 13px 13px 3px;
 }
 
@@ -184,7 +185,6 @@ body.show-chatbot .chatbot-popup {
   position: absolute;
   background-color: #ffffff;
   bottom: 0;
-  overlay: hidden;
   border-radius: 0 0 8px 8px;
 }
 
@@ -297,20 +297,20 @@ body.show-emoji-picker em-emoji-picker {
     width: 100%;
   }
 
-  .chatbot-popup .chat-header{
+  .chatbot-popup .chat-header {
     padding: 12px 15px;
   }
 
-  .chat-body{
+  .chat-body {
     height: calc(90% - 55px);
     padding: 25px 15px;
   }
 
-  .chat-footer{
+  .chat-footer {
     padding: 10px 15px 15px;
   }
 
-  .chat-form .file-upload-wrapper.file-uploaded #file-cancel{
+  .chat-form .file-upload-wrapper.file-uploaded #file-cancel {
     opacity: 0;
   }
 }
