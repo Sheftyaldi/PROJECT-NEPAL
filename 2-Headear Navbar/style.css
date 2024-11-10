@@ -1,47 +1,49 @@
-*,
-html,
-body {
-  width: 100%;
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: Helvetica, sans-serif;
 }
 
-nav {
+body {
   display: flex;
-  align-items: center;
-  width: 300px;
+}
+
+/* Gaya Nav dan Container */
+nav {
+  position: fixed;
+  left: 0;
+  top: 0;
   height: 100vh;
-  padding: 0.5em 1.25em;
+  width: 300px;
+  background-color: #131111;
+  transition: transform 0.5s ease-in-out;
+  /* transform: translateX(-100%);  */
+}
+
+nav.active {
+  transform: translateX(0); /* Tampilkan nav saat menu dibuka */
 }
 
 .container {
-  width: 100%;
-  height: calc(100vh - 10%);
   padding: 0.3em;
-  border-radius: 8px;
-  background-color: #131111;
-  position: relative;
-  transform: translateX(20px);
-  transition: transform 0.5s ease-in-out;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
+/* Gaya Heading */
 .heading {
   display: flex;
-  width: 100%;
-  height: auto;
-  padding: 10px;
   justify-content: space-between;
-  position: relative;
-  cursor: pointer;
+  align-items: center;
+  padding: 10px;
 }
 
 .heading .logo {
   display: flex;
   width: 35px;
   height: 35px;
-  margin: 4px;
   color: #ffffff;
   justify-content: center;
   align-items: center;
@@ -49,35 +51,31 @@ nav {
   border-radius: 50%;
 }
 
-.heading .close {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 25px;
-  height: 25px;
-  background-color: #ffffff;
-  margin: 20px 4px 4px 4px;
-  border-radius: 0.2em;
+.heading .menu {
+  font-size: 1.5em;
+  color: #ffffff;
   cursor: pointer;
+  display: none;
 }
 
-.heading .close:hover {
-  background-color: #e7e2e2;
+.heading .menu:hover {
+  background-color: #ffffff;
+  color: #000000;
 }
 
+/* List Menu */
 .list-menu {
-  margin-top: 0.7em;
+  margin-top: 1em;
 }
 
 .list-menu .material-symbols-rounded {
-  color: #ffffff;
   display: flex;
   align-items: center;
-  border-radius: 1em;
-  padding: 12px 10px;
-  font-size: 2em;
-  transition: background-color 0.3s ease-in-out;
+  color: #ffffff;
+  padding: 12px;
+  font-size: 1.7em;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .list-menu .material-symbols-rounded:hover {
@@ -85,35 +83,57 @@ nav {
   color: #000000;
 }
 
-.item {
-  color: white;
-  cursor: pointer;
-  margin-left: 0.2em;
-}
-
 .item:hover {
+  background-color: #ffffff;
   color: #000000;
 }
 
+.item {
+  margin-left: 0.5em;
+  color: white;
+  font-size: 0.9em;
+}
+
+/* Profil dan Logout */
 .list-profil {
-  cursor: pointer;
-  position: absolute;
-  bottom: 0;
-  margin-bottom: 0.6em;
+  margin-top: auto;
+  padding: 0.6em;
 }
 
 .list-profil .material-symbols-rounded {
-  color: #ffffff;
   display: flex;
   align-items: center;
-  border-radius: 1em;
-  padding: 10px 10px 10px 0.1em;
-  font-size: 2em;
-  width: 95%;
-  transition: background-color 0.3s ease-in-out;
+  color: #ffffff;
+  padding: 10px 0;
+  font-size: 1.7em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .list-profil .material-symbols-rounded:hover {
   background-color: #ffffff;
   color: #000000;
+}
+
+.tutup {
+  display: none;
+}
+
+/* Responsif */
+@media screen and (max-width: 768px) {
+  .heading .menu {
+    display: block; /* Tampilkan menu di mobile */
+  }
+  nav {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  nav {
+    transform: translateX(0); /* Tampilkan nav di layar besar */
+  }
+  .heading .close {
+    display: none; /* Close tidak perlu di desktop */
+  }
 }
