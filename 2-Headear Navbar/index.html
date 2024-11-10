@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Navbar</title>
     <link rel="stylesheet" href="style.css" />
+    <!-- Linking Google Fonts and Icon -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,400,0,0"
+    />
   </head>
   <body>
     <!-- Start Navbar -->
@@ -12,22 +17,51 @@
       <div class="container">
         <div class="heading">
           <div class="logo">LK</div>
-          <div class="close"><</div>
+          <span class="close material-symbols-rounded"> arrow_back_ios </span>
         </div>
         <div class="list-menu">
-          <div class="item">Dashboard</div>
-          <div class="item">Calender</div>
-          <div class="item">Notifications</div>
-          <div class="item">Team</div>
-          <div class="item">Analytics</div>
-          <div class="item">Bookmart</div>
-          <div class="item">Settings</div>
+          <span class="material-symbols-rounded">
+            dashboard
+            <div class="item">Dashboard</div>
+          </span>
+          <span class="material-symbols-rounded">
+            calendar_month
+            <div class="item">Calender</div>
+          </span>
+          <span class="material-symbols-rounded">
+            notifications
+            <div class="item">Notifications</div>
+          </span>
+          <span class="material-symbols-rounded">
+            groups
+            <div class="item">Team</div>
+          </span>
+          <span class="material-symbols-rounded">
+            analytics
+            <div class="item">Analytics</div>
+          </span>
+          <span class="material-symbols-rounded">
+            bookmark
+            <div class="item">Bookmart</div>
+          </span>
+          <span class="material-symbols-rounded">
+            settings
+            <div class="item">Settings</div>
+          </span>
         </div>
         <div class="list-profil">
-          <div class="item profil">Profile</div>
-          <div class="item logout">Logout</div>
+          <span class="material-symbols-rounded">
+            person
+            <div class="item profil">Profile</div>
+          </span>
+          <span class="material-symbols-rounded">
+            logout
+            <div class="item logout">Logout</div>
+          </span>
         </div>
       </div>
     </nav>
+
+    <script src="script.js"></script>
   </body>
 </html>
